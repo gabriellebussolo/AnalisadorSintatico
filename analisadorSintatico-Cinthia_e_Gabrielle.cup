@@ -1,0 +1,42 @@
+import java_cup.runtime.*;
+
+/* Parser code to change the way the parser reports errors (include
+   line and column number of the error). */
+parser code {:
+    public boolean syntaxErrors;
+
+    public void syntax_error(Symbol current_token) {
+        report_error(
+            "Syntax error at line " + (current_token.left+1) + ", column "
+            + current_token.right, null
+        );
+    }
+:};
+
+// Declara as variaveis nao terminais
+
+terminal CLASSE;   															// Classe
+terminal BOOL, INT, VOID;   												// Tipos
+terminal CONDICIONAL;        						  						// Operador condicional
+terminal CONSTANTE, ID, NUMERO;                                             // Constante, identificador e numero
+terminal RETORNO;                                                           // Retorno
+terminal OPLOGICO, OPARITMETICO, OPRELACIONAL;                              // Operadores
+terminal IGUAL, PARESQ, PARDIR, CHAVEESQ, CHAVEDIR, PONTOEVIRGULA, VIRGULA; // Pontuacao
+
+// Define a precendencia
+
+precedence left OPARITMETICO;
+precedence nonassoc OPRELACIONAL;
+
+//Define a gramatica
+
+declaracaoClasse ::= PARESQ CLASSE ID declaracaoAtributo declaracaoMetodo PARDIR;
+
+declaracaoAtributo ::= tipoAtributo ID PONTOEVIRGULA;
+declaracaoArgumento ::= tipoAtributo ID VIRGULA declaracaoArgumento | tipoAtributo ID;
+
+tipoAtributo ::= BOOL | INT;
+tipoMetodo ::= BOOL | INT | VOID;
+
+<tipo> <identificador>(<argumentos>) {<comandos>}
+declaracaoMetodo ::= tipoMetodo ID PARESQ declaracaoArgumento PARDIR CHAVEESQ declaracaoComando CHAVEDIR;
