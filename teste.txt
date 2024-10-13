@@ -1,0 +1,9 @@
+{class classeTeste 
+
+bool teste1; 
+
+void m(int arg1, bool arg2) {
+    teste2 = teste2 + arg1;
+}
+
+}

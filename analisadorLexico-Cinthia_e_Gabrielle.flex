@@ -4,7 +4,7 @@
 
 /* Trab GA 2 */
 
-import java_cup.runtime.*;
+import java_cup.runtime.Symbol;
 
 %%
 
@@ -59,6 +59,8 @@ chaveDir = \}
 parEsq = \(
 parDir = \)
 
+ignorar = [\n|\s|\t\r]
+
 %%
 
 // Palavras reservadas
@@ -101,3 +103,4 @@ parDir = \)
 {pontoEVirgula} { return symbol(sym.PONTOEVIRGULA); }
 {virgula} { return symbol(sym.VIRGULA); }
 
+{ignorar} {}

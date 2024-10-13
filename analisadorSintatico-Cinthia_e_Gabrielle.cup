@@ -30,7 +30,7 @@ terminal IGUAL, PARESQ, PARDIR, CHAVEESQ, CHAVEDIR, PONTOEVIRGULA, VIRGULA; // P
 // Declara as variaveis nao terminais
 non terminal declaracaoClasse, declaracaoAtributo, declaracaoMetodo;
 non terminal argumentos, tipoAtributo, tipoMetodo, comandos, comando;
-non terminal expressao, expressaoAritmetica, expressaoBooleana;
+non terminal expressao, termo;
 non terminal operadorLogico, operadorAritmetico, operadorRelacional;
 
 
@@ -56,22 +56,19 @@ comandos ::= comando PONTOEVIRGULA comandos
            | comando PONTOEVIRGULA;
 
 comando ::= ID IGUAL expressao
-          | IF PARESQ expressaoBooleana PARDIR comandos
-          | IF PARESQ expressaoBooleana PARDIR comandos ELSE comandos
+          | IF PARESQ expressao PARDIR comandos
+          | IF PARESQ expressao PARDIR comandos ELSE comandos
           | RETORNO expressao;
 
 operadorLogico ::= NOT | AND | OR;
 operadorAritmetico ::= SOMA | MULTIPLICACAO;
 operadorRelacional ::= OPIGUAL | OPMAIOR | OPMENOR;
 
-expressao ::= expressaoAritmetica
-            | expressaoBooleana;
+expressao ::= termo
+           | expressao operadorAritmetico termo
+           | expressao operadorLogico expressao;
 
-expressaoAritmetica ::= NUMERO
-                      | ID
-                      | expressaoAritmetica operadorAritmetico expressaoAritmetica;
-
-expressaoBooleana ::= CONSTANTE
-                    | ID
-                    | expressaoBooleana operadorLogico expressaoBooleana
-                    | expressaoBooleana operadorRelacional expressaoBooleana;
+termo ::= NUMERO
+        | CONSTANTE
+        | ID
+        | PARESQ expressao PARDIR;
