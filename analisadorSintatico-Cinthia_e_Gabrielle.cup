@@ -30,13 +30,38 @@ precedence nonassoc OPRELACIONAL;
 
 //Define a gramatica
 
-declaracaoClasse ::= PARESQ CLASSE ID declaracaoAtributo declaracaoMetodo PARDIR;
+declaracaoClasse ::= CHAVEESQ CLASSE ID declaracaoAtributo declaracaoMetodo CHAVEDIR
 
 declaracaoAtributo ::= tipoAtributo ID PONTOEVIRGULA;
-declaracaoArgumento ::= tipoAtributo ID VIRGULA declaracaoArgumento | tipoAtributo ID;
+
+argumentos ::= tipoAtributo ID VIRGULA argumentos
+             | tipoAtributo ID
+             | /* vazio */; //nao sei como definir isso, mas acho que precisa ter o vazio caso a declaracao de metodo nao tenha argumentos
 
 tipoAtributo ::= BOOL | INT;
 tipoMetodo ::= BOOL | INT | VOID;
 
-<tipo> <identificador>(<argumentos>) {<comandos>}
-declaracaoMetodo ::= tipoMetodo ID PARESQ declaracaoArgumento PARDIR CHAVEESQ declaracaoComando CHAVEDIR;
+declaracaoMetodo ::= tipoMetodo ID PARESQ argumentos PARDIR CHAVEESQ comandos CHAVEDIR;
+
+comandos ::= comando PONTOEVIRGULA comandos
+           | comando PONTOEVIRGULA;
+
+comando ::= ID IGUAL expressao
+          | CONDICIONAL PARESQ expressaoBooleana PARDIR comandos
+          | CONDICIONAL PARESQ expressaoBooleana PARDIR comandos ELSE comandos
+          | RETORNO expressao;
+
+expressao ::= expressaoAritmetica
+            | expressaoBooleana
+
+expressaoAritmetica ::= NUMERO
+                      | ID
+                      | expressaoAritmetica OPARITMETICO expressaoAritmetica;
+
+expressaoBooleana ::= CONSTANTE
+                    | ID
+                    | expressaoBooleana OPLOGICO expressaoBooleana
+                    | expressaoBooleana OPRELACIONAL expressaoBooleana;
+
+
+//chamadaDeMetodo ??
