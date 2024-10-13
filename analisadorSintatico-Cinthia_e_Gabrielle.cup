@@ -1,4 +1,6 @@
 import java_cup.runtime.*;
+import java.util.*;
+import java.io.*;
 
 /* Parser code to change the way the parser reports errors (include
    line and column number of the error). */
@@ -13,15 +15,21 @@ parser code {:
     }
 :};
 
-// Declara as variaveis nao terminais
+// Declara as variaveis terminais
 
 terminal CLASSE;   															// Classe
 terminal BOOL, INT, VOID;   												// Tipos
-terminal CONDICIONAL;        						  						// Operador condicional
+terminal IF, ELSE;        						  						    // Operadores condicionais
 terminal CONSTANTE, ID, NUMERO;                                             // Constante, identificador e numero
 terminal RETORNO;                                                           // Retorno
 terminal OPLOGICO, OPARITMETICO, OPRELACIONAL;                              // Operadores
 terminal IGUAL, PARESQ, PARDIR, CHAVEESQ, CHAVEDIR, PONTOEVIRGULA, VIRGULA; // Pontuacao
+
+// Declara as variaveis nao terminais
+non terminal declaracaoClasse, declaracaoAtributo, declaracaoMetodo;
+non terminal argumentos, tipoAtributo, tipoMetodo, comandos, comando;
+non terminal expressao, expressaoAritmetica, expressaoBooleana;
+
 
 // Define a precendencia
 
@@ -30,13 +38,12 @@ precedence nonassoc OPRELACIONAL;
 
 //Define a gramatica
 
-declaracaoClasse ::= CHAVEESQ CLASSE ID declaracaoAtributo declaracaoMetodo CHAVEDIR
+declaracaoClasse ::= CHAVEESQ CLASSE ID declaracaoAtributo declaracaoMetodo CHAVEDIR;
 
 declaracaoAtributo ::= tipoAtributo ID PONTOEVIRGULA;
 
 argumentos ::= tipoAtributo ID VIRGULA argumentos
-             | tipoAtributo ID
-             | /* vazio */; //nao sei como definir isso, mas acho que precisa ter o vazio caso a declaracao de metodo nao tenha argumentos
+             | tipoAtributo ID;
 
 tipoAtributo ::= BOOL | INT;
 tipoMetodo ::= BOOL | INT | VOID;
@@ -47,12 +54,12 @@ comandos ::= comando PONTOEVIRGULA comandos
            | comando PONTOEVIRGULA;
 
 comando ::= ID IGUAL expressao
-          | CONDICIONAL PARESQ expressaoBooleana PARDIR comandos
-          | CONDICIONAL PARESQ expressaoBooleana PARDIR comandos ELSE comandos
+          | IF PARESQ expressaoBooleana PARDIR comandos
+          | IF PARESQ expressaoBooleana PARDIR comandos ELSE comandos
           | RETORNO expressao;
 
 expressao ::= expressaoAritmetica
-            | expressaoBooleana
+            | expressaoBooleana;
 
 expressaoAritmetica ::= NUMERO
                       | ID
@@ -62,6 +69,3 @@ expressaoBooleana ::= CONSTANTE
                     | ID
                     | expressaoBooleana OPLOGICO expressaoBooleana
                     | expressaoBooleana OPRELACIONAL expressaoBooleana;
-
-
-//chamadaDeMetodo ??

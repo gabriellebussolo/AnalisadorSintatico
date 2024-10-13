@@ -29,7 +29,8 @@ import java_cup.runtime.*;
 classe = class 
 constante = True|False
 operadorLogico = not|and|or
-condicional = if | else
+if = if
+else = else
 retorno = return
 
 boolType = bool
@@ -62,7 +63,8 @@ parDir = \)
 {intType} { return symbol(sym.INT); }
 {voidType} { return symbol(sym.VOID); }
 
-{condicional} { return symbol(sym.CONDICIONAL); }
+{if} { return symbol(sym.IF); }
+{else} { return symbol(sym.ELSE); }
 
 {constante} { return symbol(sym.CONSTANTE); }
 {operadorLogico} { return symbol(sym.OPLOGICO); }
