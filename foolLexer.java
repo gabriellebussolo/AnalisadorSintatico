@@ -67,12 +67,12 @@ public class foolLexer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
-    "\50\0\1\1\1\2\2\3\1\4\3\0\12\5\1\0"+
-    "\1\6\1\7\1\10\1\7\2\0\5\11\1\12\15\11"+
-    "\1\13\6\11\4\0\1\11\1\0\1\14\1\15\1\16"+
-    "\1\17\1\20\1\21\2\11\1\22\2\11\1\23\1\11"+
-    "\1\24\1\25\2\11\1\26\1\27\1\30\1\31\1\32"+
-    "\4\11\1\33\1\0\1\34\u0182\0";
+    "\50\0\1\1\1\2\1\3\1\4\1\5\3\0\12\6"+
+    "\1\0\1\7\1\10\1\11\1\12\2\0\5\13\1\14"+
+    "\15\13\1\15\6\13\4\0\1\13\1\0\1\16\1\17"+
+    "\1\20\1\21\1\22\1\23\2\13\1\24\2\13\1\25"+
+    "\1\13\1\26\1\27\2\13\1\30\1\31\1\32\1\33"+
+    "\1\34\4\13\1\35\1\0\1\36\u0182\0";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[512];
@@ -100,12 +100,13 @@ public class foolLexer implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7"+
-    "\1\10\14\11\1\12\1\13\6\11\1\14\2\11\1\15"+
-    "\7\11\1\16\2\11\1\17\1\20\1\11\1\21\1\11"+
-    "\1\22\1\23\1\11\1\24";
+    "\1\10\1\11\1\12\14\13\1\14\1\15\1\16\6\13"+
+    "\1\17\2\13\1\20\4\13\1\21\3\13\1\22\1\23"+
+    "\2\13\1\24\1\25\1\13\1\26\1\13\1\27\1\30"+
+    "\1\13\1\31";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[52];
+    int [] result = new int[57];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -130,16 +131,17 @@ public class foolLexer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\35\0\35\0\35\0\35\0\72\0\35\0\35"+
-    "\0\127\0\164\0\221\0\256\0\313\0\350\0\u0105\0\u0122"+
-    "\0\u013f\0\u015c\0\u0179\0\u0196\0\u01b3\0\35\0\35\0\u01d0"+
-    "\0\u01ed\0\u020a\0\u0227\0\u0244\0\u0261\0\164\0\u027e\0\u029b"+
-    "\0\164\0\u02b8\0\u02d5\0\u02f2\0\u030f\0\u032c\0\u0349\0\u0366"+
-    "\0\164\0\u0383\0\u03a0\0\164\0\164\0\u03bd\0\164\0\u03da"+
-    "\0\164\0\164\0\u03f7\0\164";
+    "\0\0\0\37\0\37\0\37\0\37\0\37\0\76\0\37"+
+    "\0\37\0\135\0\37\0\174\0\233\0\272\0\331\0\370"+
+    "\0\u0117\0\u0136\0\u0155\0\u0174\0\u0193\0\u01b2\0\u01d1\0\37"+
+    "\0\37\0\37\0\u01f0\0\u020f\0\u022e\0\u024d\0\u026c\0\u028b"+
+    "\0\174\0\u02aa\0\u02c9\0\174\0\u02e8\0\u0307\0\u0326\0\u0345"+
+    "\0\174\0\u0364\0\u0383\0\u03a2\0\174\0\174\0\u03c1\0\u03e0"+
+    "\0\174\0\174\0\u03ff\0\174\0\u041e\0\174\0\174\0\u043d"+
+    "\0\174";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[52];
+    int [] result = new int[57];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -163,36 +165,37 @@ public class foolLexer implements java_cup.runtime.Scanner {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\0\1\2\1\3\1\4\1\5\1\6\1\7\1\10"+
-    "\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\12"+
-    "\1\20\1\12\1\21\1\12\1\22\1\23\1\24\3\12"+
-    "\1\25\1\26\1\27\42\0\1\6\37\0\1\10\31\0"+
-    "\1\12\3\0\22\12\7\0\1\12\3\0\3\12\1\30"+
-    "\16\12\7\0\1\12\3\0\15\12\1\31\4\12\7\0"+
-    "\1\12\3\0\13\12\1\32\6\12\7\0\1\12\3\0"+
-    "\14\12\1\33\5\12\7\0\1\12\3\0\12\12\1\34"+
-    "\7\12\7\0\1\12\3\0\12\12\1\35\7\12\7\0"+
-    "\1\12\3\0\10\12\1\36\2\12\1\37\6\12\7\0"+
-    "\1\12\3\0\14\12\1\40\5\12\7\0\1\12\3\0"+
-    "\15\12\1\41\4\12\7\0\1\12\3\0\7\12\1\42"+
-    "\12\12\7\0\1\12\3\0\14\12\1\43\5\12\7\0"+
-    "\1\12\3\0\12\12\1\44\7\12\7\0\1\12\3\0"+
-    "\20\12\1\45\1\12\7\0\1\12\3\0\6\12\1\41"+
-    "\13\12\7\0\1\12\3\0\14\12\1\46\5\12\7\0"+
-    "\1\12\3\0\3\12\1\47\16\12\7\0\1\12\3\0"+
-    "\16\12\1\50\3\12\7\0\1\12\3\0\17\12\1\51"+
-    "\2\12\7\0\1\12\3\0\17\12\1\41\2\12\7\0"+
-    "\1\12\3\0\17\12\1\52\2\12\7\0\1\12\3\0"+
-    "\11\12\1\53\10\12\7\0\1\12\3\0\16\12\1\45"+
-    "\3\12\7\0\1\12\3\0\7\12\1\54\12\12\7\0"+
-    "\1\12\3\0\12\12\1\55\7\12\7\0\1\12\3\0"+
-    "\16\12\1\56\3\12\7\0\1\12\3\0\7\12\1\57"+
-    "\12\12\7\0\1\12\3\0\20\12\1\60\1\12\7\0"+
-    "\1\12\3\0\6\12\1\61\13\12\7\0\1\12\3\0"+
-    "\16\12\1\62\3\12\7\0\1\12\3\0\15\12\1\63"+
-    "\4\12\7\0\1\12\3\0\13\12\1\64\6\12\2\0";
+    "\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20"+
+    "\1\21\1\14\1\22\1\14\1\23\1\14\1\24\1\25"+
+    "\1\26\3\14\1\27\1\30\1\31\45\0\1\7\41\0"+
+    "\1\32\33\0\1\14\4\0\22\14\10\0\1\14\4\0"+
+    "\3\14\1\33\16\14\10\0\1\14\4\0\15\14\1\34"+
+    "\4\14\10\0\1\14\4\0\13\14\1\35\6\14\10\0"+
+    "\1\14\4\0\14\14\1\36\5\14\10\0\1\14\4\0"+
+    "\12\14\1\37\7\14\10\0\1\14\4\0\12\14\1\40"+
+    "\7\14\10\0\1\14\4\0\10\14\1\41\2\14\1\42"+
+    "\6\14\10\0\1\14\4\0\14\14\1\43\5\14\10\0"+
+    "\1\14\4\0\15\14\1\44\4\14\10\0\1\14\4\0"+
+    "\7\14\1\45\12\14\10\0\1\14\4\0\14\14\1\46"+
+    "\5\14\10\0\1\14\4\0\12\14\1\47\7\14\10\0"+
+    "\1\14\4\0\20\14\1\50\1\14\10\0\1\14\4\0"+
+    "\6\14\1\51\13\14\10\0\1\14\4\0\14\14\1\52"+
+    "\5\14\10\0\1\14\4\0\3\14\1\53\16\14\10\0"+
+    "\1\14\4\0\16\14\1\54\3\14\10\0\1\14\4\0"+
+    "\17\14\1\55\2\14\10\0\1\14\4\0\17\14\1\56"+
+    "\2\14\10\0\1\14\4\0\17\14\1\57\2\14\10\0"+
+    "\1\14\4\0\11\14\1\60\10\14\10\0\1\14\4\0"+
+    "\16\14\1\50\3\14\10\0\1\14\4\0\7\14\1\61"+
+    "\12\14\10\0\1\14\4\0\12\14\1\62\7\14\10\0"+
+    "\1\14\4\0\16\14\1\63\3\14\10\0\1\14\4\0"+
+    "\7\14\1\64\12\14\10\0\1\14\4\0\20\14\1\65"+
+    "\1\14\10\0\1\14\4\0\6\14\1\66\13\14\10\0"+
+    "\1\14\4\0\16\14\1\67\3\14\10\0\1\14\4\0"+
+    "\15\14\1\70\4\14\10\0\1\14\4\0\13\14\1\71"+
+    "\6\14\2\0";
 
   private static int [] zzUnpacktrans() {
-    int [] result = new int[1044];
+    int [] result = new int[1116];
     int offset = 0;
     offset = zzUnpacktrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -235,10 +238,11 @@ public class foolLexer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\4\11\1\1\2\11\15\1\2\11\35\1";
+    "\1\0\5\11\1\1\2\11\1\1\1\11\14\1\3\11"+
+    "\37\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[52];
+    int [] result = new int[57];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -751,102 +755,127 @@ public class foolLexer implements java_cup.runtime.Scanner {
             { return symbol(sym.PARESQ);
             }
           // fall through
-          case 21: break;
+          case 26: break;
           case 2:
             { return symbol(sym.PARDIR);
             }
           // fall through
-          case 22: break;
-          case 3:
-            { return symbol(sym.OPARITIMETICO);
-            }
-          // fall through
-          case 23: break;
-          case 4:
-            { return symbol(sym.VIRGULA);
-            }
-          // fall through
-          case 24: break;
-          case 5:
-            { return symbol(sym.NUMERO);
-            }
-          // fall through
-          case 25: break;
-          case 6:
-            { return symbol(sym.PONTOEVIRGULA);
-            }
-          // fall through
-          case 26: break;
-          case 7:
-            { return symbol(sym.OPRELACIONAL);
-            }
-          // fall through
           case 27: break;
-          case 8:
-            { return symbol(sym.IGUAL);
+          case 3:
+            { return symbol(sym.MULTIPLICACAO);
             }
           // fall through
           case 28: break;
-          case 9:
-            { return symbol(sym.ID);
+          case 4:
+            { return symbol(sym.SOMA);
             }
           // fall through
           case 29: break;
-          case 10:
-            { return symbol(sym.CHAVEESQ);
+          case 5:
+            { return symbol(sym.VIRGULA);
             }
           // fall through
           case 30: break;
-          case 11:
-            { return symbol(sym.CHAVEDIR);
+          case 6:
+            { return symbol(sym.NUMERO);
             }
           // fall through
           case 31: break;
-          case 12:
-            { return symbol(sym.IF);
+          case 7:
+            { return symbol(sym.PONTOEVIRGULA);
             }
           // fall through
           case 32: break;
-          case 13:
-            { return symbol(sym.OPLOGICO);
+          case 8:
+            { return symbol(sym.OPMENOR);
             }
           // fall through
           case 33: break;
-          case 14:
-            { return symbol(sym.INT);
+          case 9:
+            { return symbol(sym.IGUAL);
             }
           // fall through
           case 34: break;
-          case 15:
-            { return symbol(sym.CONSTANTE);
+          case 10:
+            { return symbol(sym.OPMAIOR);
             }
           // fall through
           case 35: break;
-          case 16:
-            { return symbol(sym.BOOL);
+          case 11:
+            { return symbol(sym.ID);
             }
           // fall through
           case 36: break;
-          case 17:
-            { return symbol(sym.ELSE);
+          case 12:
+            { return symbol(sym.CHAVEESQ);
             }
           // fall through
           case 37: break;
-          case 18:
-            { return symbol(sym.VOID);
+          case 13:
+            { return symbol(sym.CHAVEDIR);
             }
           // fall through
           case 38: break;
-          case 19:
-            { return symbol(sym.CLASSE);
+          case 14:
+            { return symbol(sym.OPIGUAL);
             }
           // fall through
           case 39: break;
-          case 20:
-            { return symbol(sym.RETORNO);
+          case 15:
+            { return symbol(sym.IF);
             }
           // fall through
           case 40: break;
+          case 16:
+            { return symbol(sym.OR);
+            }
+          // fall through
+          case 41: break;
+          case 17:
+            { return symbol(sym.AND);
+            }
+          // fall through
+          case 42: break;
+          case 18:
+            { return symbol(sym.INT);
+            }
+          // fall through
+          case 43: break;
+          case 19:
+            { return symbol(sym.NOT);
+            }
+          // fall through
+          case 44: break;
+          case 20:
+            { return symbol(sym.CONSTANTE);
+            }
+          // fall through
+          case 45: break;
+          case 21:
+            { return symbol(sym.BOOL);
+            }
+          // fall through
+          case 46: break;
+          case 22:
+            { return symbol(sym.ELSE);
+            }
+          // fall through
+          case 47: break;
+          case 23:
+            { return symbol(sym.VOID);
+            }
+          // fall through
+          case 48: break;
+          case 24:
+            { return symbol(sym.CLASSE);
+            }
+          // fall through
+          case 49: break;
+          case 25:
+            { return symbol(sym.RETORNO);
+            }
+          // fall through
+          case 50: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

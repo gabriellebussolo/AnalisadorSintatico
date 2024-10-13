@@ -28,7 +28,9 @@ import java_cup.runtime.*;
 // Palavras reservadas
 classe = class 
 constante = True|False
-operadorLogico = not|and|or
+not = not
+and = and
+or = or
 if = if
 else = else
 retorno = return
@@ -42,8 +44,11 @@ identificador = [a-zA-Z_][a-zA-Z_0-9]*
 numero = [0-9]+
 
 // Operadores
-operadorAritmetico = [\+\*]
-operadorRelacional = (==|<|>)
+soma = \+
+multiplicacao = \*
+opIgual = \=\=
+opMenor = <
+opMaior = >
 igual = \=
 
 // Pontuacao
@@ -67,7 +72,9 @@ parDir = \)
 {else} { return symbol(sym.ELSE); }
 
 {constante} { return symbol(sym.CONSTANTE); }
-{operadorLogico} { return symbol(sym.OPLOGICO); }
+{not} { return symbol(sym.NOT); }
+{and} { return symbol(sym.AND); }
+{or} { return symbol(sym.OR); }
 
 {retorno} { return symbol(sym.RETORNO); }
 
@@ -76,8 +83,11 @@ parDir = \)
 {numero} { return symbol(sym.NUMERO); }
 
 // Operadores
-{operadorAritmetico} { return symbol(sym.OPARITIMETICO); }
-{operadorRelacional} { return symbol(sym.OPRELACIONAL); }
+{soma} { return symbol(sym.SOMA); }
+{multiplicacao} { return symbol(sym.MULTIPLICACAO); }
+{opIgual} { return symbol(sym.OPIGUAL); }
+{opMaior} { return symbol(sym.OPMAIOR); }
+{opMenor} { return symbol(sym.OPMENOR); }
 
 {igual} { return symbol(sym.IGUAL); }
 

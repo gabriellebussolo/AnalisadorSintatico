@@ -22,19 +22,21 @@ terminal BOOL, INT, VOID;   												// Tipos
 terminal IF, ELSE;        						  						    // Operadores condicionais
 terminal CONSTANTE, ID, NUMERO;                                             // Constante, identificador e numero
 terminal RETORNO;                                                           // Retorno
-terminal OPLOGICO, OPARITMETICO, OPRELACIONAL;                              // Operadores
+terminal NOT, AND, OR;						                                // Operadores logicos
+terminal SOMA, MULTIPLICACAO;				                                // Operadores aritmeticos
+terminal OPIGUAL, OPMAIOR, OPMENOR;			                                // Operadores relacionais
 terminal IGUAL, PARESQ, PARDIR, CHAVEESQ, CHAVEDIR, PONTOEVIRGULA, VIRGULA; // Pontuacao
 
 // Declara as variaveis nao terminais
 non terminal declaracaoClasse, declaracaoAtributo, declaracaoMetodo;
 non terminal argumentos, tipoAtributo, tipoMetodo, comandos, comando;
 non terminal expressao, expressaoAritmetica, expressaoBooleana;
+non terminal operadorLogico, operadorAritmetico, operadorRelacional;
 
 
 // Define a precendencia
-
-precedence left OPARITMETICO;
-precedence nonassoc OPRELACIONAL;
+precedence left SOMA, MULTIPLICACAO;
+precedence nonassoc OPIGUAL, OPMAIOR, OPMENOR, NOT, AND, OR;
 
 //Define a gramatica
 
@@ -58,14 +60,18 @@ comando ::= ID IGUAL expressao
           | IF PARESQ expressaoBooleana PARDIR comandos ELSE comandos
           | RETORNO expressao;
 
+operadorLogico ::= NOT | AND | OR;
+operadorAritmetico ::= SOMA | MULTIPLICACAO;
+operadorRelacional ::= OPIGUAL | OPMAIOR | OPMENOR;
+
 expressao ::= expressaoAritmetica
             | expressaoBooleana;
 
 expressaoAritmetica ::= NUMERO
                       | ID
-                      | expressaoAritmetica OPARITMETICO expressaoAritmetica;
+                      | expressaoAritmetica operadorAritmetico expressaoAritmetica;
 
 expressaoBooleana ::= CONSTANTE
                     | ID
-                    | expressaoBooleana OPLOGICO expressaoBooleana
-                    | expressaoBooleana OPRELACIONAL expressaoBooleana;
+                    | expressaoBooleana operadorLogico expressaoBooleana
+                    | expressaoBooleana operadorRelacional expressaoBooleana;
