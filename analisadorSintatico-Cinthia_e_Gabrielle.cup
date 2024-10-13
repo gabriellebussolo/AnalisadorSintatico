@@ -28,7 +28,7 @@ terminal OPIGUAL, OPMAIOR, OPMENOR;			                                // Operado
 terminal IGUAL, PARESQ, PARDIR, CHAVEESQ, CHAVEDIR, PONTOEVIRGULA, VIRGULA; // Pontuacao
 
 // Declara as variaveis nao terminais
-non terminal declaracaoClasse, declaracaoAtributo, declaracaoMetodo;
+non terminal declaracaoClasse, declaracaoAtributo, declaracaoMetodo, atributos;
 non terminal argumentos, tipoAtributo, tipoMetodo, comandos, comando;
 non terminal expressao, termo;
 non terminal operadorLogico, operadorAritmetico, operadorRelacional;
@@ -36,11 +36,14 @@ non terminal operadorLogico, operadorAritmetico, operadorRelacional;
 
 // Define a precendencia
 precedence left SOMA, MULTIPLICACAO;
+precedence left BOOL, INT, PONTOEVIRGULA, IF;
 precedence nonassoc OPIGUAL, OPMAIOR, OPMENOR, NOT, AND, OR;
 
 //Define a gramatica
 
-declaracaoClasse ::= CHAVEESQ CLASSE ID declaracaoAtributo declaracaoMetodo CHAVEDIR;
+declaracaoClasse ::= CHAVEESQ CLASSE ID atributos declaracaoMetodo CHAVEDIR;
+
+atributos ::= declaracaoAtributo atributos | declaracaoAtributo;
 
 declaracaoAtributo ::= tipoAtributo ID PONTOEVIRGULA;
 
@@ -66,6 +69,7 @@ operadorRelacional ::= OPIGUAL | OPMAIOR | OPMENOR;
 
 expressao ::= termo
            | expressao operadorAritmetico termo
+           | expressao operadorRelacional termo
            | expressao operadorLogico expressao;
 
 termo ::= NUMERO

@@ -1,8 +1,11 @@
 {class classeTeste 
 
-bool teste1; 
+bool teste1;
+int teste2;
 
-void m(int arg1, bool arg2) {
+void metodo1(int arg1, bool arg2) {
+
+    teste2 = teste2 + arg1;
     teste2 = teste2 + arg1;
 }
 
