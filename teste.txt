@@ -4,9 +4,11 @@ bool teste1;
 int teste2;
 
 void metodo1(int arg1, bool arg2) {
+    teste2 = teste2 + arg1;
+}
 
-    teste2 = teste2 + arg1;
-    teste2 = teste2 + arg1;
+int metodo2(int arg1){
+    return arg1;
 }
 
 }
