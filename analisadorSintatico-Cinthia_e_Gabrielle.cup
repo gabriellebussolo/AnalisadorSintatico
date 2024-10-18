@@ -2,8 +2,6 @@ import java_cup.runtime.*;
 import java.util.*;
 import java.io.*;
 
-/* Parser code to change the way the parser reports errors (include
-   line and column number of the error). */
 parser code {:
     public boolean syntaxErrors;
 
@@ -29,16 +27,16 @@ terminal IGUAL, PARESQ, PARDIR, CHAVEESQ, CHAVEDIR, PONTOEVIRGULA, VIRGULA; // P
 
 // Declara as variaveis nao terminais
 non terminal declaracaoClasse, declaracaoAtributo, declaracaoMetodo, metodos, atributos;
-non terminal argumentos, tipoAtributo, tipoMetodo, comandos, comando;
-non terminal expressao, termo;
+non terminal argumentos, tipoAtributo, tipoMetodo, comandos, comando, ifSemElse;
+non terminal termoAritmetico, termoBooleano, expressaoAritmetica, expressaoBooleana, termo;
 non terminal operadorLogico, operadorAritmetico, operadorRelacional;
 
-
 // Define a precendencia
+precedence left OR, AND, NOT;
+precedence nonassoc OPIGUAL, OPMAIOR, OPMENOR;
 precedence left SOMA, MULTIPLICACAO;
 precedence left BOOL, INT;
-precedence nonassoc OPIGUAL, OPMAIOR, OPMENOR, NOT, AND, OR;
-precedence left ELSE;
+precedence left ELSE, IF, ID, RETORNO;
 
 //Define a gramatica
 
@@ -59,24 +57,30 @@ metodos ::= declaracaoMetodo metodos
 
 declaracaoMetodo ::= tipoMetodo ID PARESQ argumentos PARDIR CHAVEESQ comandos CHAVEDIR;
 
-comandos ::= comando PONTOEVIRGULA comandos
-           | comando PONTOEVIRGULA;
+comandos ::= comandos comando
+           | comando;
 
-comando ::= ID IGUAL expressao
-          | IF PARESQ expressao PARDIR comandos
-          | IF PARESQ expressao PARDIR comandos ELSE comandos
-          | RETORNO expressao;
+ifSemElse ::= IF PARESQ termo PARDIR comandos | ifSemElse ELSE comandos;
+
+comando ::= ID IGUAL termo PONTOEVIRGULA
+          | RETORNO termo PONTOEVIRGULA
+          | ifSemElse;
 
 operadorLogico ::= NOT | AND | OR;
 operadorAritmetico ::= SOMA | MULTIPLICACAO;
 operadorRelacional ::= OPIGUAL | OPMAIOR | OPMENOR;
 
-expressao ::= termo
-           | expressao operadorAritmetico termo
-           | expressao operadorRelacional termo
-           | expressao operadorLogico expressao;
+termo ::= ID | expressaoAritmetica | expressaoBooleana;
 
-termo ::= NUMERO
-        | CONSTANTE
-        | ID
-        | PARESQ expressao PARDIR;
+expressaoAritmetica ::= termoAritmetico
+                     | termo operadorAritmetico termo;
+
+expressaoBooleana ::= termoBooleano
+                   | termo operadorRelacional termo
+                   | termo operadorLogico termo;
+
+termoAritmetico ::= NUMERO
+                  | PARESQ expressaoAritmetica PARDIR;
+
+termoBooleano ::= CONSTANTE
+                | PARESQ expressaoBooleana PARDIR;

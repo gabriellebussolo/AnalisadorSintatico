@@ -11,4 +11,9 @@ int metodo2(int arg1){
     return arg1;
 }
 
+bool metodo3(int arg1){
+    if (teste1 > teste2) return False;
+    else return True;
+}
+
 }
